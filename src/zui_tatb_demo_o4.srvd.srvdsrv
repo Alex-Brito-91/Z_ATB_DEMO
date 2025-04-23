@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_TATB_DEMO'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_TATB_DEMO'
+  }
+}
+define service ZUI_TATB_DEMO_O4 provider contracts odata_v4_ui {
+  expose ZC_TATB_DEMO;
+}

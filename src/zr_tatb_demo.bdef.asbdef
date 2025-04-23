@@ -1,0 +1,46 @@
+managed implementation in class ZBP_R_TATB_DEMO unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_TATB_DEMO alias ZrTatbDemo
+persistent table ztatb_demo
+draft table ztatb_demo_d
+etag master Locallastchangedat
+lock master total etag Lastchangedat
+authorization master ( global )
+
+{
+  field ( readonly )
+  Orderid,
+  Createdby,
+  Createdat,
+  Locallastchangedby,
+  Locallastchangedat,
+  Lastchangedat;
+
+  field ( numbering : managed )
+  Orderid;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ztatb_demo
+    {
+      Orderid            = orderid;
+      Customer           = customer;
+      Vendor             = vendor;
+      Company            = company;
+      Createdby          = createdby;
+      Createdat          = createdat;
+      Locallastchangedby = locallastchangedby;
+      Locallastchangedat = locallastchangedat;
+      Lastchangedat      = lastchangedat;
+    }
+}
